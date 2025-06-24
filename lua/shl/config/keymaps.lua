@@ -37,3 +37,5 @@ vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- [[ Git ]]
 vim.keymap.set("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Git", noremap = true, silent = true })
+
+

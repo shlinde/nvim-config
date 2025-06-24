@@ -63,3 +63,8 @@ vim.o.fillchars = table.concat(
   { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
   ','
 )
+
+-- Statusbar - good if you don't want to use a plugin.
+vim.o.statusline = [[%<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%) %P]]
+
+vim.opt.makeprg = "just"
