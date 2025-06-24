@@ -55,5 +55,11 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_browse_split = 4
 vim.g.netrw_altv = 1
 
+vim.api.nvim_set_hl(0, "NetrwDir", { fg = "#808080" }) -- GUI/true color
+vim.api.nvim_set_hl(0, "NetrwLink", { fg = "#606060" }) -- GUI/true color
 
-
+vim.o.fillchars = table.concat(
+  -- Special UI symbols
+  { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
+  ','
+)
