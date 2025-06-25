@@ -22,6 +22,7 @@ vim.o.number = true         -- enable line number
 vim.o.relativenumber = true -- and relative line number
 
 vim.o.pumheight = 10        -- max height of completion menu
+vim.o.completeopt = "menu,menuone,popup,fuzzy" -- modern completion menu
 
 vim.o.confirm = true     -- show dialog for unsaved file(s) before quit
 vim.o.updatetime = 200   -- save swap file with 200ms debouncing
@@ -74,6 +75,37 @@ vim.o.fillchars = table.concat(
 )
 
 -- Statusbar - good if you don't want to use a plugin.
-vim.o.statusline = [[%<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%) %P]]
+vim.o.statusline = "[%<%.20f][%{&fenc==''?&enc:&fenc}]%y%m%r%h%=%([Line: %l Column: %c %P]%)"
 
 vim.opt.makeprg = "just"
+
+
+-- FzfLua
+if pcall(require, "fzf-lua") then
+	require("fzf-lua").setup { "fzf-native" }
+
+
+	-- Use FzfLua for file path completions
+	vim.keymap.set(
+		{ "n", "v", "i" },
+		"<C-x><C-f>",
+		function() require("fzf-lua").complete_path() end,
+		{ silent = true, desc = "Fuzzy complete path" }
+	)
+	
+end
+
+-- Treesitter
+if pcall(require, "nvim-treesitter") then
+
+	require("nvim-treesitter.configs").setup {
+		ensure_installed = { "c", "cpp", "vim", "lua", "vimdoc", "query", "markdown", "markdown_inline", "python", "toml", "yaml" },
+		sync_install = false,
+		auto_install = true,
+	}
+	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+end
+
+
+vim.o.statusline = "%!v:lua.require('shl.config.statusline').run()"

@@ -8,3 +8,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("vertical resize 80")
   end,
 })
+
+
+-- Treesitter
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        pcall(vim.treesitter.start)
+    end
+})

@@ -7,3 +7,9 @@
 [submodule "pack/plugins/start/modus-themes"]
 	path = pack/plugins/start/modus-themes
 	url = https://github.com/miikanissi/modus-themes.nvim.git
+[submodule "pack/plugins/start/nvim-treesitter"]
+	path = pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/plugins/start/which-key"]
+	path = pack/plugins/start/which-key
+	url = https://github.com/folke/which-key.nvim.git

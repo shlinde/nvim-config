@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>e', '<cmd>Lexplore 15<cr>', { silent = true })
 
 -- [[ FzfLua ]]
 vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { silent = true, desc = "Files"})
+vim.keymap.set('n', '<leader>pf', '<cmd>FzfLua git_files<cr>', { silent = true, desc = "Files"})
 vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<cr>', { silent = true, desc = "Helptags"})
 vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<cr>', { silent = true, desc = "Buffers"})
 vim.keymap.set('n', '<leader>fq', '<cmd>FzfLua quickfix<cr>', { silent = true, desc = "Quickfix"})
@@ -38,4 +39,8 @@ vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 -- [[ Git ]]
 vim.keymap.set("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Git", noremap = true, silent = true })
 
+-- [[ Which Key ]]
+if pcall(require, "which-key") then
+	vim.keymap.set("n", "<leader>?", function() require("which-key").show() end, { desc = "Buffer Local Keymaps" })
+end
 
