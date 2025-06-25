@@ -7,6 +7,15 @@ vim.g.maplocalleader = vim.keycode("<cr>")
 
 vim.o.termguicolors = true  -- enable rgb colors
 
+if pcall(require, "modus-themes") then
+	require("modus-themes").setup {
+		variant = "deuteranopia",
+	}
+	vim.cmd([[colorscheme modus]])
+else
+	vim.cmd([[colorscheme koehler]])
+end
+
 vim.o.cursorline = true     -- enable cursor line
 
 vim.o.number = true         -- enable line number
