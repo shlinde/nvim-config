@@ -102,6 +102,24 @@ if pcall(require, "nvim-treesitter") then
 		ensure_installed = { "c", "cpp", "vim", "lua", "vimdoc", "query", "markdown", "markdown_inline", "python", "toml", "yaml" },
 		sync_install = false,
 		auto_install = true,
+		highlight = {
+			enable = true,
+		},
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "gnn", -- in normal mode, start incremental selection
+				node_incremental = "grn", -- in visual mode, increment to the upper named parent
+				scope_incremental = "grc", -- in visual mode, increment to the upper scope
+				node_decremental = "grm", -- in visual mode, decremtn to the previous named node
+			}
+		},
+		indent = {
+			enable = true,
+		},
+		text_objects = {
+			enabled = true,
+		}
 	}
 	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
