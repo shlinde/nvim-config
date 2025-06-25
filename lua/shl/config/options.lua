@@ -23,6 +23,7 @@ vim.o.relativenumber = true -- and relative line number
 
 vim.o.pumheight = 10        -- max height of completion menu
 vim.o.completeopt = "menu,menuone,popup,fuzzy" -- modern completion menu
+vim.o.wildmenu = true
 
 vim.o.confirm = true     -- show dialog for unsaved file(s) before quit
 vim.o.updatetime = 200   -- save swap file with 200ms debouncing
