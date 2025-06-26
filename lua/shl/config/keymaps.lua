@@ -44,3 +44,8 @@ if pcall(require, "which-key") then
 	vim.keymap.set("n", "<leader>?", function() require("which-key").show() end, { desc = "Buffer Local Keymaps" })
 end
 
+
+-- [[ WSL ]]
+if vim.fn.has("wsl") then
+	vim.keymap.set("n", "<leader>E", "<cmd>!explorer.exe .<cr>", { desc = "Open OS Explorer", silent = true })
+end
