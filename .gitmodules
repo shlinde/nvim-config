@@ -13,3 +13,6 @@
 [submodule "pack/plugins/start/which-key"]
 	path = pack/plugins/start/which-key
 	url = https://github.com/folke/which-key.nvim.git
+[submodule "pack/plugins/start/oil"]
+	path = pack/plugins/start/oil
+	url = https://github.com/stevearc/oil.nvim.git
