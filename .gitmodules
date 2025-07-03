@@ -16,3 +16,9 @@
 [submodule "pack/plugins/start/oil"]
 	path = pack/plugins/start/oil
 	url = https://github.com/stevearc/oil.nvim.git
+[submodule "pack/plugins/start/profile"]
+	path = pack/plugins/start/profile
+	url = https://github.com/stevearc/profile.nvim.git
+[submodule "pack/nvim/start/nvim-lspconfig"]
+	path = pack/nvim/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig

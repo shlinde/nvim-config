@@ -48,43 +48,12 @@ if vim.fn.has("wsl") then
 end
 
 
-local toggle_oil_split = function()
-	local find_oil_win = function()
-		local wins = vim.api.nvim_list_wins()
-		for _, win_id in ipairs(wins) do 
-			local buf_id = vim.api.nvim_win_get_buf(win_id)
-			local success, ft = pcall(vim.api.nvim_buf_get_option, buf_id, 'filetype')
-			if success and ft == "oil" then
-				return win_id
-			end
-		end
-		return nil
-	end
 
-	local oil_win_id = find_oil_win()
-	local current_win_id = vim.api.nvim_get_current_win()
-
-	if oil_win_id then
-		if oil_win_id == current_win_id then
-			vim.cmd("close")
-		else
-			vim.api.nvim_set_current_win(oil_win_id)
-		end
-	else
-		vim.cmd("leftabove 35 vsplit | Oil")
-	end
-end
-
-vim.api.nvim_create_user_command("ToggleOilSplit", toggle_oil_split, {
-	desc = "Toggle Oil file explorer in a vertical split",
-})
-
-
--- [[ File Explorer ]]
+	-- [[ File Explorer ]]
 if pcall(require, "oil") then
-	require("oil").setup()
+	require("oil").setup {}
 
-	vim.keymap.set("n", "<leader>e", toggle_oil_split, { desc = "File Tree", noremap = true, silent = true})
+	vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Oil", noremap = true, silent = true})
 
 else
 	vim.keymap.set('n', '<leader>e', '<cmd>Lexplore 15<cr>', { silent = true })

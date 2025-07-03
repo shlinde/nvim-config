@@ -7,19 +7,21 @@ vim.g.maplocalleader = vim.keycode("<cr>")
 
 vim.o.termguicolors = true  -- enable rgb colors
 
-if pcall(require, "modus-themes") then
-	require("modus-themes").setup {
-		variant = "deuteranopia",
-	}
-	vim.cmd([[colorscheme modus]])
-else
-	vim.cmd([[colorscheme koehler]])
-end
+-- if pcall(require, "modus-themes") then
+-- 	require("modus-themes").setup {
+-- 		variant = "deuteranopia",
+-- 	}
+-- 	vim.cmd([[colorscheme modus]])
+-- else
+-- 	vim.cmd([[colorscheme koehler]])
+-- end
+vim.cmd([[colorscheme default]])
 
 vim.o.cursorline = true     -- enable cursor line
 
 vim.o.number = true         -- enable line number
 vim.o.relativenumber = true -- and relative line number
+vim.o.signcolumn = "yes"
 
 vim.o.pumheight = 10        -- max height of completion menu
 vim.o.completeopt = "menu,menuone,popup,fuzzy" -- modern completion menu
@@ -128,3 +130,7 @@ end
 
 
 vim.o.statusline = "%!v:lua.require('shl.config.statusline').run()"
+
+-- LSP
+vim.lsp.enable('basedpyright')
+
